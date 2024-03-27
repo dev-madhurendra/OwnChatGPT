@@ -1,0 +1,24 @@
+.chat-container {
+  margin: 20px;
+}
+
+.prompt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prompt-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.prompt {
+  font-weight: bold;
+}
+
+.prompt-answer {
+  margin-left: 20px;
+  color: #555;
+}
