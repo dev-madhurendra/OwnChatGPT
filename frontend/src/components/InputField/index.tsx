@@ -1,33 +1,37 @@
 import { SetStateAction, useState } from "react";
+import "./InputField.css"; 
 
 interface IInputfield {
-    onSubmit: (inputvalue: string) => void
+  onSubmit: (inputvalue: string) => void;
 }
 
 const InputField = ({ onSubmit }: IInputfield) => {
   const [inputValue, setInputValue] = useState("");
 
-  const handleChange = (event: { target: { value: SetStateAction<string>; }; }) => {
+  const handleChange = (event: {
+    target: { value: SetStateAction<string> };
+  }) => {
     setInputValue(event.target.value);
   };
 
-  const handleSubmit = (event: { preventDefault: () => void; }) => {
+  const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
     onSubmit(inputValue);
     setInputValue("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleChange}
-        placeholder="Type here..."
-        autoFocus
-      />
-      <button type="submit">Send</button>
-    </form>
+    <div className="input-container">
+      <form className="input-form" onSubmit={handleSubmit}>
+        <textarea
+          value={inputValue}
+          onChange={handleChange}
+          placeholder="Ask anything...."
+          autoFocus
+        />
+        {inputValue && inputValue.trim() && <button type="submit">Ask</button>}
+      </form>
+    </div>
   );
 };
 

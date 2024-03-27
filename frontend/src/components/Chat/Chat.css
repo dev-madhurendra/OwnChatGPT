@@ -1,5 +1,7 @@
 .chat-container {
-  margin: 20px;
+  width: 80%;
+  margin: auto;
+  padding-bottom: 100px;
 }
 
 .prompt-list {
